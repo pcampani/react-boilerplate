@@ -2,6 +2,7 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const isDevelopment = process.env.NODE_ENV !== 'production';
 
 module.exports = {
 	entry: {
@@ -9,9 +10,9 @@ module.exports = {
 	},
 	output: {
 		path: path.join(__dirname, 'dist'),
-		filename: '[name].[hash].js',
+		filename: isDevelopment ? '[name].js' : '[name].[hash].js'
 	},
-	mode: 'development',
+	mode: isDevelopment ? 'development' : 'production',
 	module: {
 		rules: [
 			{

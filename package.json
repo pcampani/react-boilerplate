@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack"
+    "build": "cross-env NODE_ENV=development webpack --config webpack.config.js",
+    "build-prod": "cross-env NODE_ENV=production webpack --config webpack.config.js"
   },
   "author": "Philip Campani",
   "license": "MIT",
@@ -24,7 +25,6 @@
     "@babel/preset-react": "^7.9.4",
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
-    "cross-env": "^7.0.2",
     "css-loader": "^3.4.2",
     "favicons-webpack-plugin": "^3.0.1",
     "file-loader": "^6.0.0",
